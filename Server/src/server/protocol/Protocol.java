@@ -131,6 +131,9 @@ public class Protocol {
                     lesen = new Datenbanklesen("Infouser", str[1]);
                     get = lesen.getListe();
                     
+                    for(int i = 0;i<get.length;i++)
+                        System.out.println(get[i]);
+                    
                     antwort = Jsondecoding.write("infouser", get);
                     break;
                 case "registrate":
@@ -180,7 +183,6 @@ public class Protocol {
                     antwort = Jsondecodingsingle.write("default", "err03");
                 
             }
-        antwort = Jsondecodingsingle.write("Error", "err02");
     }
     
     

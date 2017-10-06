@@ -19,8 +19,14 @@ public class Datenbanklesen
     private final String read;
     private final String name;
     private String[] liste;
-    Connect connect = new Connect("horse");
     
+    private final Connect connect = new Connect("horse");
+    private final Connection conn = connect.getConn();
+    
+    
+    
+    private String sql;
+    private ResultSet myRs;
 
     public Datenbanklesen(String read, String name) {
         this.read = read;
@@ -38,12 +44,8 @@ public class Datenbanklesen
         try
         {
             int i;
-            String sql;
-            ResultSet myRs;
-            
-            Connection conn = connect.getConn();
-            
             Statement st = conn.createStatement();
+            
             
             switch(read)
             {
@@ -59,12 +61,17 @@ public class Datenbanklesen
                 break;
                 case "Infouser":
                     sql =  "SELECT * FROM login WHERE username = '" + name + "'";
-                    System.out.println(sql);
+                    
                     myRs = st.executeQuery(sql);
+                    
                     while (myRs.next()) {
                         for(i=1; i<=5; i++)
+                        {
                              liste[i-1]=myRs.getString(i);
+                             System.out.println(liste[i-1]);
+                        }
                     }
+                break;
                 case "Infohorse":
                     sql =  "SELECT * FROM horses WHERE name = '" + name + "'";
                     myRs = st.executeQuery(sql);

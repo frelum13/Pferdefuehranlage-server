@@ -38,7 +38,7 @@ public class ConnectionThreadServer implements Runnable
             String stringantwort = null;
             JSONParser parser = new JSONParser();
             
-            log.info("In Connection Thread");
+            log.info("ConnectionThreadServer: Ein Client hat sich verbunden");
             
             final BufferedReader r = new BufferedReader(new InputStreamReader(socket.getInputStream()));   
             final BufferedWriter w = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));   
@@ -52,8 +52,9 @@ public class ConnectionThreadServer implements Runnable
             }
 
             
-            log.log(Level.INFO, "ConnectionThread:{0}Empfangenes Telegramm", obj);
+            log.log(Level.INFO, "ConnectionThread: Empfangenes Telegramm :{0}", obj);
             str = Jsonendcoding.decoiding(obj);
+            
             log.info("ConnectionThread: Start des Protokolls");
             
             // Aufruf Protokoll
@@ -66,16 +67,18 @@ public class ConnectionThreadServer implements Runnable
             //senden
             w.write(stringantwort);
             w.flush();
+            log.info("ConnectionThreadSrever: geantwortet");
         }
         catch (IOException ex) {
-            Logger.getLogger(ConnectionThreadServer.class.getName()).log(Level.SEVERE, "IOException", ex);
+            log.severe("ConnectionThreadServer: IOException (Problem mit Buffer)");
         }         
         finally
         {
             try {
                 socket.close();
+                log.info("Thread erfolgreich geschlossen");
             } catch (IOException ex) {
-                Logger.getLogger(ConnectionThreadServer.class.getName()).log(Level.SEVERE, "Socket close IOException", ex);
+                log.severe("ConnectionThreadServer: Problem beim Thread close");
             }
         }
         
