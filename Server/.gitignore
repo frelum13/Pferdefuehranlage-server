@@ -1,0 +1,55 @@
+# Netbeans Java with ant
+**/nbproject/private/
+**/build/
+**/dist/
+
+**/libs/
+
+# Netbeans Java with Maven
+**/target/
+
+# Netbeans Java with Gradle
+**/.gradle/
+**/.nb-gradle/
+
+# Netbeans C/C++
+**/nbproject/private/
+**/build/
+**/dist/
+**/.dep.inc
+
+# Codeblocks
+**/bin/
+**/obj/
+*.depend
+*.layout
+
+#AndroidStudio
+**/gradle-wrapper.jar# Netbeans Java with ant
+**/nbproject/private/
+**/build/
+**/dist/
+
+**/libs/
+
+# Netbeans Java with Maven
+**/target/
+
+# Netbeans Java with Gradle
+**/.gradle/
+**/.nb-gradle/
+
+# Netbeans C/C++
+**/nbproject/private/
+**/build/
+**/dist/
+**/.dep.inc
+
+# Codeblocks
+**/bin/
+**/obj/
+*.depend
+*.layout
+
+#AndroidStudio
+**/gradle-wrapper.jar
