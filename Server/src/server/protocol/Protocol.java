@@ -26,7 +26,7 @@ public class Protocol {
         private final String[] str;
         private String[] get;  
         private String[] registrate;
-        private String[] login;
+        private String[] login = new String[100];
         //Strings
         private String singleget = null;     
         //Datenbank
@@ -130,10 +130,7 @@ public class Protocol {
                     
                     lesen = new Datenbanklesen("Infouser", str[1]);
                     get = lesen.getListe();
-                    
-                    for(int i = 0;i<get.length;i++)
-                        System.out.println(get[i]);
-                    
+                                        
                     antwort = Jsondecoding.write("infouser", get);
                     break;
                 case "registrate":
@@ -157,13 +154,13 @@ public class Protocol {
                       
                       if("true".equals(singleget))
                       {
-                          lesen = new Datenbanklesen("Password", login[0]);
+                          lesen = new Datenbanklesen("Password", login[1]);
                           get = lesen.getListe();
                                                     
-                          System.out.println(get[1]);
-                          System.out.println(login[1]);
-                          
-                          if(login[1].equals(get[1]))
+                          System.out.println("get: " + get[0]);
+                          System.out.println("login: " + login[1]);
+                          boolean what = login[1].equals(get[0]);
+                          if(what == true)
                           {
                               antwort = Jsondecodingsingle.write("login", "true");
                           }

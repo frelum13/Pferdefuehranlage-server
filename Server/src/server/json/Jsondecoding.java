@@ -27,7 +27,7 @@ public class Jsondecoding {
         
         obj.put("messages", list);
         
-        System.out.print(obj);
+        System.out.println(obj);
         return obj;
     }
     
