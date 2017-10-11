@@ -65,19 +65,13 @@ public class Datenbanklesen
                    
                     myRs = st.executeQuery(sql);
                     
-<<<<<<< HEAD
+
                     while (myRs.next()) 
                     {
                         liste = new String[5];
                         for(i=1; i<=liste.length; i++)
                             liste[i-1] = myRs.getString(i);
-=======
-                    while (myRs.next()) {
-                        for(i=1; i<=liste.length; i++)
-                        {
-                             liste[i-1]=myRs.getString(i);
-                        }
->>>>>>> 66eea85c26f853333a3842e98d98afd284de453a
+
                     }
                 break;
                 case "Infohorse":
