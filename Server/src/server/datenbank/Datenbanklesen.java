@@ -64,12 +64,11 @@ public class Datenbanklesen
                     
                     myRs = st.executeQuery(sql);
                     
-                    while (myRs.next()) {
-                        for(i=1; i<=5; i++)
-                        {
-                             liste[i-1]=myRs.getString(i);
-                             System.out.println(liste[i-1]);
-                        }
+                    while (myRs.next()) 
+                    {
+                        liste = new String[5];
+                        for(i=1; i<=liste.length; i++)
+                            liste[i-1] = myRs.getString(i);
                     }
                 break;
                 case "Infohorse":
@@ -86,9 +85,13 @@ public class Datenbanklesen
                 }
             }               
         }
-        catch(SQLException | NullPointerException e)
+        catch(SQLException e)
         {
             liste[0]= connect.getError();
+        }
+        catch(NullPointerException e)
+        {
+             liste[0] = "NullPointEX";
         }
     }
 }
