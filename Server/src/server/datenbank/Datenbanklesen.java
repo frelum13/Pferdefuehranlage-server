@@ -50,14 +50,12 @@ public class Datenbanklesen
             switch(read)
             {
                 case "Password":
-                    liste = new String[3];
+                    liste = new String[5];
                     sql =  "SELECT * FROM login WHERE username = '" + name + "'";
+                    
                     myRs = st.executeQuery(sql);
-                    while (myRs.next())
-                    {
-                        //System.out.println("Password: " + myRs.getString(4));
-                        liste[0] =  myRs.getString(5);                                 
-                    }
+                    liste[0] = myRs.getString(5);
+                    
                 break;
                 case "Infouser":
                     liste = new String[5];
@@ -66,6 +64,7 @@ public class Datenbanklesen
                     myRs = st.executeQuery(sql);
                     
                     while (myRs.next()) {
+                        
                         for(i=1; i<=liste.length; i++)
                         {
                              liste[i-1]=myRs.getString(i);
