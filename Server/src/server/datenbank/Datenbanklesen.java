@@ -52,23 +52,42 @@ public class Datenbanklesen
                 case "Password":
                     liste = new String[5];
                     sql =  "SELECT * FROM login WHERE username = '" + name + "'";
+<<<<<<< HEAD
                     
                     myRs = st.executeQuery(sql);
                     liste[0] = myRs.getString(5);
                     
+=======
+                   
+                    myRs = st.executeQuery(sql);
+                    
+                    System.out.println(myRs.next());
+                    while (myRs.next()) 
+                    {
+                        liste = new String[5];
+                        for(i=1; i<=liste.length; i++)
+                            liste[i-1] = myRs.getString(i);
+
+                    }
+>>>>>>> 9af28b9b1ba29f63fc9e52cd45e665da1f670477
                 break;
                 case "Infouser":
                     liste = new String[5];
                     sql =  "SELECT * FROM login WHERE username = '" + name + "'";
                    
                     myRs = st.executeQuery(sql);
+<<<<<<< HEAD
                     
                     while (myRs.next()) {
                         
+=======
+                    while (myRs.next()) 
+                    {
+                        liste = new String[5];
+>>>>>>> 9af28b9b1ba29f63fc9e52cd45e665da1f670477
                         for(i=1; i<=liste.length; i++)
-                        {
-                             liste[i-1]=myRs.getString(i);
-                        }
+                            liste[i-1] = myRs.getString(i);
+
                     }
                 break;
                 case "Infohorse":
@@ -85,9 +104,13 @@ public class Datenbanklesen
                 }
             }               
         }
-        catch(SQLException | NullPointerException e)
+        catch(SQLException e)
         {
             liste[0]= connect.getError();
+        }
+        catch(NullPointerException e)
+        {
+             liste[0] = "NullPointEX";
         }
     }
 }
