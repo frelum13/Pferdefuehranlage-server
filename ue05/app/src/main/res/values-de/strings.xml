@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ue05</string>
+    <string name="button">Berechnen</string>
+    <string name="breite">Breite</string>
+    <string name="laenge">Länge</string>
+</resources>
